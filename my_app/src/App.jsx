@@ -28,6 +28,13 @@ import Welcome from './propsComponents/props01';
 import Counter01 from './propsComponents/stateCount';
 import Counter02 from './propsComponents/stateCount02';
 import Alert from './propsComponents/props06';
+import Exstate12 from './stateComponents/Ex12';
+import Test from './stateComponents/test';
+import Exstate18 from './stateComponents/Ex018';
+import Blog from './stateComponents/blog';
+import MovieReview from './stateComponents/MovieReview-seung';
+import ScoreManager from './stateComponents/Student';
+import TodoApp from './stateComponents/TodoApp';
 function UserCard({name,age}){
   return(
     <>
@@ -103,10 +110,11 @@ function App() {
            </div>
         ))} */}
         {/* <Welcome name='개나리' /> */}
-        <Alert type='error' msg='오류' />
+        {/* <Alert type='error' msg='오류' />
         <Alert type='sucess' msg='성공' />
         <Alert type='info' msg='정보' />
-        <Alert type='warring' msg='경고' />
+        <Alert type='warring' msg='경고' /> */}
+        <TodoApp />
     </>
   )
 }
