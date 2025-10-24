@@ -35,6 +35,12 @@ import Blog from './stateComponents/blog';
 import MovieReview from './stateComponents/MovieReview-seung';
 import ScoreManager from './stateComponents/Student';
 import TodoApp from './stateComponents/TodoApp';
+import Modalchange from './stateUI/uitest01';
+import LoginView from './stateUI/uitest02';
+import PromptChange from './stateUI/uitest03';
+import AuthApp from './stateUI/member/AuthApp';
+import MovieApp from './stateUI/movie/MovieApp';
+import ShopApp from './stateUI/shop/ShopApp';
 function UserCard({name,age}){
   return(
     <>
@@ -114,7 +120,7 @@ function App() {
         <Alert type='sucess' msg='성공' />
         <Alert type='info' msg='정보' />
         <Alert type='warring' msg='경고' /> */}
-        <TodoApp />
+        <ShopApp />
     </>
   )
 }
