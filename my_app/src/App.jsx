@@ -7,13 +7,7 @@ import './App.css'
 // 이미지를 하나하나 import해서 개별로 가져올 수 있다.
 // public 폴더의 이미지 파일은 import하지 않아도
 // 사용 가능하다.
-import img01 from '../public/images/image01.png';
-import Ex07 from './components/Ex07';
 // import Child from './propsComponents/child';
-import Parent from './propsComponents/parent';
-import Parent02 from './propsComponents/wecome';
-import Parent03 from './propsComponents/profile';
-import Parent04 from './propsComponents/prEx';
 // UserCard()함수 생성 하기
 // UserCard()컴포넌트를 App()컴포넌트의 자식으로 사용할 예정
 // App()컴포넌트의 name, age매개변수를 => props명령어를 이용해
@@ -23,24 +17,10 @@ import Parent04 from './propsComponents/prEx';
 // {props.name}, {props.age}
 // props로 매개변수를 보내지 않고 직접 매개변수 값을 지정
 // {name, age}형식으로 작성한다.
+// 부모 blogc.jsx를 import한다.
+import Hover04 from './stateUI/hover04'
+import Changimg04 from './stateUI/Changimg04'
 
-import Welcome from './propsComponents/props01';
-import Counter01 from './propsComponents/stateCount';
-import Counter02 from './propsComponents/stateCount02';
-import Alert from './propsComponents/props06';
-import Exstate12 from './stateComponents/Ex12';
-import Test from './stateComponents/test';
-import Exstate18 from './stateComponents/Ex018';
-import Blog from './stateComponents/blog';
-import MovieReview from './stateComponents/MovieReview-seung';
-import ScoreManager from './stateComponents/Student';
-import TodoApp from './stateComponents/TodoApp';
-import Modalchange from './stateUI/uitest01';
-import LoginView from './stateUI/uitest02';
-import PromptChange from './stateUI/uitest03';
-import AuthApp from './stateUI/member/AuthApp';
-import MovieApp from './stateUI/movie/MovieApp';
-import ShopApp from './stateUI/shop/ShopApp';
 function UserCard({name,age}){
   return(
     <>
@@ -120,7 +100,7 @@ function App() {
         <Alert type='sucess' msg='성공' />
         <Alert type='info' msg='정보' />
         <Alert type='warring' msg='경고' /> */}
-        <ShopApp />
+        <Changimg04 />
     </>
   )
 }

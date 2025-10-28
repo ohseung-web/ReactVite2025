@@ -1,11 +1,13 @@
 // ProductItem.jsx
 import React from 'react';
 
-export default function ProductItem({ product, addToCart }) {
-  return (
-    <li>
-      {product.name} - {product.price}원
-      <button onClick={() => addToCart(product)}>담기</button>
-    </li>
-  );
+export default function ProductItem(props) {
+  return(
+    <>
+      <li>
+        {props.product.name} - {props.product.price}원
+        <button type='button' onClick={() => props.addCart(props.product)}>담기</button>
+      </li>
+    </>
+  )
 }
