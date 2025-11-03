@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
 // src -> assets -> 이미지 파일은 반드시 ipmort한다.
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -18,9 +20,13 @@ import './App.css'
 // props로 매개변수를 보내지 않고 직접 매개변수 값을 지정
 // {name, age}형식으로 작성한다.
 // 부모 blogc.jsx를 import한다.
-import Hover04 from './stateUI/hover04'
-import Changimg04 from './stateUI/Changimg04'
-
+import Home from './pages/Home'
+import About from './pages/About'
+import ProdApp from './pages/ProdApp';
+import ProDetail from './pages/ProDetail';
+import Fakestore from './Pages/Fake/Fakestore';
+import FakestoreDetail from './Pages/Fake/FakestoreDetail';
+import useProduct from './Pages/Fake/Data';
 function UserCard({name,age}){
   return(
     <>
@@ -43,21 +49,22 @@ function App() {
   // 실행할 HTML 문서를 작성한다.
   // true, false 논리값이지 문자가 아님
   // true === 1, false === 0
-  const name = '홍길동';
-  const isLoggin = 'sucess';
-  const fruits = ['사과','오렌지','바나나']
-  const user = { name: "김철수", age: 25, email: "kim@example.com" }; 
-  const clickHandler = () =>{
-     console.log('버튼 클릭')
-  }
+  // const name = '홍길동';
+  // const isLoggin = 'sucess';
+  // const fruits = ['사과','오렌지','바나나']
+  // const user = { name: "김철수", age: 25, email: "kim@example.com" }; 
+  // const clickHandler = () =>{
+  //    console.log('버튼 클릭')
+  // }
 
   // 객체배열
-  const products = [
-      { id: 1, name: "노트북", price: 1200000 },
-      { id: 2, name: "마우스", price: 30000 },
-      { id: 3, name: "키보드", price: 80000 }
-      ];
-
+  // const products = [
+  //     { id: 1, name: "노트북", price: 1200000 },
+  //     { id: 2, name: "마우스", price: 30000 },
+  //     { id: 3, name: "키보드", price: 80000 }
+  //     ];
+  // 내가만든 useProduct()커스텀 훅 호출
+   const data = useProduct();
   return (
     // <></>는 프래그먼트로 리액트는 HTML 작성시
     // 반드시 부모태그가 하나만 존재해야 하므로
@@ -100,7 +107,14 @@ function App() {
         <Alert type='sucess' msg='성공' />
         <Alert type='info' msg='정보' />
         <Alert type='warring' msg='경고' /> */}
-        <Changimg04 />
+        {/* <Fakestoreapi /> */}
+        {/* <BrowserRouter> */}
+        {/* 커스텀 훅이든 이미 존재하는 훅이든 JSX안으로 가져올 수 없다. */}
+            <Routes>
+                <Route path='/' element={<Fakestore data={data} />} />
+                <Route path='/detail/:id' element={<FakestoreDetail data={data} />} />
+            </Routes>
+        {/* </BrowserRouter> */}
     </>
   )
 }

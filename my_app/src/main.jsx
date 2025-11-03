@@ -5,10 +5,12 @@ import App from './App.jsx'
 // 내가만든 Test12함수를 import로 가저오기
 import Test12 from './components/test12.jsx'
 import Test13 from './components/test13.jsx'
+import { BrowserRouter } from 'react-router-dom'
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
+  <BrowserRouter>
     <App />
-    {/* <Test12 /> */}
-    {/* <Test13 /> */}
-  </StrictMode>,
+  </BrowserRouter>
+    
+  // </StrictMode>
 )
