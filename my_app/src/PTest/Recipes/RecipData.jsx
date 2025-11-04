@@ -2,6 +2,14 @@ import { useState, useEffect } from 'react';
 
 export default function useRecipes() {
   const [data, setData] = useState([]);
+  // JSON 데이터 30개 => 배열
+  // JSON {id:1, name:A, count:1}
+  // JSON {id:2, name:A, count:1}
+  // JSON {id:3, name:A, count:1}
+  // JSON {id:4, name:A, count:1}
+  // [{id:1, name:A, count:1},
+  // {id:2, name:A, count:1},  
+  // ]
 
   useEffect(() => {
     fetch('https://dummyjson.com/recipes')

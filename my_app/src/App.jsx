@@ -20,13 +20,8 @@ import './App.css'
 // props로 매개변수를 보내지 않고 직접 매개변수 값을 지정
 // {name, age}형식으로 작성한다.
 // 부모 blogc.jsx를 import한다.
-import Home from './pages/Home'
-import About from './pages/About'
-import ProdApp from './pages/ProdApp';
-import ProDetail from './pages/ProDetail';
-import Fakestore from './Pages/Fake/Fakestore';
-import FakestoreDetail from './Pages/Fake/FakestoreDetail';
-import useProduct from './Pages/Fake/Data';
+import UserApp from './UserApp';
+
 function UserCard({name,age}){
   return(
     <>
@@ -64,7 +59,7 @@ function App() {
   //     { id: 3, name: "키보드", price: 80000 }
   //     ];
   // 내가만든 useProduct()커스텀 훅 호출
-   const data = useProduct();
+  //  const data = useRecipes();
   return (
     // <></>는 프래그먼트로 리액트는 HTML 작성시
     // 반드시 부모태그가 하나만 존재해야 하므로
@@ -110,11 +105,12 @@ function App() {
         {/* <Fakestoreapi /> */}
         {/* <BrowserRouter> */}
         {/* 커스텀 훅이든 이미 존재하는 훅이든 JSX안으로 가져올 수 없다. */}
-            <Routes>
-                <Route path='/' element={<Fakestore data={data} />} />
-                <Route path='/detail/:id' element={<FakestoreDetail data={data} />} />
-            </Routes>
+            {/* <Routes>
+                <Route path='/' element={<RecipeList data={data} />} />
+                <Route path='/detail/:id' element={<RecipeDetail data={data} />} />
+            </Routes> */}
         {/* </BrowserRouter> */}
+        <UserApp />
     </>
   )
 }
