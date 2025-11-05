@@ -21,6 +21,11 @@ import './App.css'
 // {name, age}형식으로 작성한다.
 // 부모 blogc.jsx를 import한다.
 import UserApp from './UserApp';
+import Home from './ContextAPI02/pages/Home';
+import Profile from './ContextAPI02/Components/Profile';
+import LoginForm from './ContextAPI02/Components/LoginForm';
+import AuthProvider from './ContextAPI02/Contexts/AuthContext';
+import Header from './ContextAPI02/Components/Header';
 
 function UserCard({name,age}){
   return(
@@ -110,7 +115,17 @@ function App() {
                 <Route path='/detail/:id' element={<RecipeDetail data={data} />} />
             </Routes> */}
         {/* </BrowserRouter> */}
-        <UserApp />
+        {/* <UserApp /> */}
+      <AuthProvider>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </main>
+    </AuthProvider>
     </>
   )
 }
