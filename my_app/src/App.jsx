@@ -26,18 +26,22 @@ import Profile from './ContextAPI02/Components/Profile';
 import LoginForm from './ContextAPI02/Components/LoginForm';
 import AuthProvider from './ContextAPI02/Contexts/AuthContext';
 import Header from './ContextAPI02/Components/Header';
+import WishlistProvider from './wishlist/WishlistContext';
+import ProductList from './wishlist/ProductList';
+import WishlistPage from './wishlist/WishlistPage';
+import Exj01 from './JSON/ExJ01';
 
 function UserCard({name,age}){
   return(
     <>
-      <div style={{border:'1px solid #ddd',
+      {/* <div style={{border:'1px solid #ddd',
         padding:'15px',
         margin:'10px',
         borderRadius:'8px'
       }}>
        <h2>{name}</h2>
        <h2>{age}</h2>
-      </div>
+      </div> */}
     </>
   )
 }
@@ -65,12 +69,50 @@ function App() {
   //     ];
   // 내가만든 useProduct()커스텀 훅 호출
   //  const data = useRecipes();
+
+
+  // ✅ showWishlist : 찜 목록 보이기 여부 (true/false)
+  // ✅ setShowWishlist : 상태를 변경하는 함수
+  // 기본값은 false → 처음에는 상품 목록이 보임
+  // const [showWishlist, setShowWishlist] = useState(false);
+
   return (
-    // <></>는 프래그먼트로 리액트는 HTML 작성시
+    
+    <>
+     {/* 
+         // ✅ WishlistProvider로 전체 앱을 감싼다.
+         // 이 안의 모든 컴포넌트들은 WishlistContext의 전역 상태를 사용할 수 있음.
+     */}
+     
+    {/* <WishlistProvider> */}
+      {/* ------------------ 헤더 영역 ------------------ */}
+      {/* <header
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '20px',
+          backgroundColor: '#eee',
+        }} */}
+      
+        {/* 왼쪽 제목 */}
+        {/* <h1>🧡 찜하기 예제</h1> */}
+
+        {/* 오른쪽 버튼: 클릭 시 찜 목록 보기 ↔ 상품 보기 토글 */}
+        {/* <button onClick={() => setShowWishlist(!showWishlist)}> */}
+          {/* {showWishlist ? '상품 보기' : '찜 목록 보기'} */}
+        {/* </button> */}
+      {/* </header> */}
+
+      {/* ------------------ 본문 영역 ------------------ */}
+      {/* showWishlist가 true면 찜 목록 페이지(WishlistPage),
+          false면 상품 목록(ProductList)를 보여줌 */}
+      {/* {showWishlist ? <WishlistPage /> : <ProductList />} */}
+    {/* </WishlistProvider> */}
+    
+     {/* // <></>는 프래그먼트로 리액트는 HTML 작성시
     // 반드시 부모태그가 하나만 존재해야 하므로
     // 비어있는 태그를 사용하도록 허용한 기술이다.
-    // 리액트는 반드시 닫는 태그 존재해야 함 : <hr />
-    <>
+    // 리액트는 반드시 닫는 태그 존재해야 함 : <hr /> */}
      {/* 문제 : name:'홍길동'정의 후 <h1>태그에 출력하기 */}
         {/* <div style={{backgroundColor:'lightblue',padding:'20px',borderRadius:'10px'}}> */}
           {/* javaScript의 class를 React는 className로 사용 */}
@@ -116,7 +158,7 @@ function App() {
             </Routes> */}
         {/* </BrowserRouter> */}
         {/* <UserApp /> */}
-      <AuthProvider>
+      {/* <AuthProvider>
         <Header />
         <main>
           <Routes>
@@ -125,7 +167,8 @@ function App() {
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </main>
-    </AuthProvider>
+    </AuthProvider> */}
+    <Exj01 />
     </>
   )
 }

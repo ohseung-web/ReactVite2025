@@ -17,11 +17,18 @@ export default function AuthProvider({children}){
 //               예외처리 또는 방어코드 작성한다.
       const [user, setUser] = useState(null)
 
+    //   이전 코드에 없는 코드 추가 부분
+      // 로그인 폼의 입력값을 전역으로 관리
+      const [loginInput, setLoginInput] = useState("");
+ 
     //  로그인 함수 login() : 사용자 이름을 받아  user 객체로 저장
+     // 로그인 함수: 전달받은 이름으로 user를 설정
     const login = (username) =>{
-         
+         if(username !== null || username !== '') return; 
         //   setUser({name : username})
-          setUser(username)
+          setUser(username);
+        //   로그인 폼의 입력 값을 초기화
+          setLoginInput('')
     }
 
     // 로그아웃 함수 logout : user를 null로 초기화 (로그아웃=로그인 해제)
@@ -33,7 +40,7 @@ export default function AuthProvider({children}){
     // children은 <AuthProvider> ~~~ </AuthProvider> 안의
     // 포함된 컴포넌트를 의미한다.
     return(
-        <AuthContext.Provider value={{user, login, logout ,setUser}}>
+        <AuthContext.Provider value={{user, login, logout ,setUser, loginInput, setLoginInput}}>
             {children}
         </AuthContext.Provider>
     )  

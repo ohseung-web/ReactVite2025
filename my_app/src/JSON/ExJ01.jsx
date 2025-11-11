@@ -21,21 +21,29 @@ const [user, setUser] = useState(true)
 
 // JSON의 데이터 받은 부분을 함수로 정의
 const JSONdata = () =>{
+   let dataArray = []
       // JSON의 URL부분의 파람터 형식으로 userId 가져온다.
     // 사용방법 ~/user/${userId}
     //  https://jsonplaceholder.typicode.com/users/3
-    fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+   for(let i=1;i<10; i++){
+      //  fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+      dataArray.push( fetch(`https://jsonplaceholder.typicode.com/users/${i}`))
+   }   
     // res의 원문 response(요청하다)객체 이미 React에 존재한다.
     // res 줄임말 약속 같은 의미
-    .then((res) => res.json()) //JSON 파싱(해석)
+    Promise.all(dataArray)
+   //  .then((res) => res.json()) //JSON 파싱(해석)
     // data: res.json() 넘겨준 데이터를 말함
+    .then((responses)=> { return Promise.all(responses.map((res) => res.json()));})
     .then((data)=>{
         setUser(data)
+        console.log(data)
     })
     // JSON에서 가져오는 데이터가 실패하든 성공하든 상관없이 무조건 출력
     .finally(() => {
        console.log('요청 완료')
     })
+    
 }
 
 // useEffect를 이용해서 JSON 데이터 받기
