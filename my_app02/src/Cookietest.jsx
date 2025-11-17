@@ -34,9 +34,15 @@ export default function CookieTest(){
           <div>
              <h2>쿠키 예제</h2>
              <p>현제 쿠키 값 : {cookieValue}</p>
-             <button type='button' style={{backgroundColor:'dodgerblue',color:'#fff'}} onClick={CookieSave}>쿠키 저장</button>
-             <button type='button' style={{backgroundColor:'dodgerblue',color:'#fff'}} onClick={CookieChk}>쿠키 확인</button>
-             <button type='button' style={{backgroundColor:'dodgerblue',color:'#fff'}} onClick={CookieDel}>쿠키 삭제</button>
+             <button type='button' 
+             style={{backgroundColor:'dodgerblue',color:'#fff'}} 
+             onClick={CookieSave}>쿠키 저장</button>
+             <button type='button' 
+             style={{backgroundColor:'dodgerblue',color:'#fff'}} 
+             onClick={CookieChk}>쿠키 확인</button>
+             <button type='button' 
+             style={{backgroundColor:'dodgerblue',color:'#fff'}} 
+             onClick={CookieDel}>쿠키 삭제</button>
           </div>
         </>
     )

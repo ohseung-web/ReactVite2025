@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import UserApp from './UserApp'
-import ThemeLayout from './ContextAPI/pages/ThemeLayout'
+// import UserApp from './UserApp'
+// import ThemeLayout from './ContextAPI/pages/ThemeLayout'
 // ThemeProvider 를 import하여 안에 
 // ThemeContext.Provider가 감싸는 형식을 구현한다.
-import ThemeProvider from './ThemeContext'
-import Join from './Addr/Join'
+// import ThemeProvider from './ThemeContext'
+// import Join from './Addr/Join'
 // import Home from './Context02/pages/Home'
 // import Profile from './Context02/components/Profile'
 // import LoginForm from './Context02/components/LoginForm'
@@ -24,10 +24,15 @@ import Join from './Addr/Join'
 // import HomePage from './LoginExample/Pages/HomePage'
 import CookieTest from './Cookietest'
 import LoginNaver from './LoginNaver'
+import Header from './header/Header'
+import Footer from './footer/Footer'
+import Section from './section/Section'
+import Drma from './drma'
+
 function App() {
   // ProductList, WishlistPage를 선택하도록 하기위한 상태변수
   // const [showlist, setShowlist] = useState(false)
-
+  const [selectjangre, setSelectjangre] = useState('Drama')
   return (
     <>
        {/* <ThemeProvider>
@@ -65,7 +70,14 @@ function App() {
             <Route path='/home' element={<HomePage />}/>
          </Routes>
       </AuthProvider> */}
-      <LoginNaver />
+     <BrowserRouter>
+        <Header />
+       <Routes>
+            <Route path='/' element={<Section />} />
+            <Route path='/drma' element={<Drma />} /> 
+       </Routes>
+        <Footer />
+     </BrowserRouter> 
     </>
   )
 }
