@@ -11,18 +11,23 @@ import Section from './pages/Section'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Cartpage from './pages/CartPage'
+import CookieTest from './cookie/CookieTest'
+import LoginNaver from './cookie/LoginCookie'
 function App() {
 
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Section />} />
-        <Route path="/cart" element={<Cartpage />} />
-        {/* <Route path="/login" element={<LoginNaver />} /> */}
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    // <BrowserRouter>
+    //   <Header />
+    //   <Routes>
+    //     <Route path="/" element={<Section />} />
+    //     <Route path="/cart" element={<Cartpage />} />
+    //     {/* <Route path="/login" element={<LoginNaver />} /> */}
+    //   </Routes>
+    //   <Footer />
+    // </BrowserRouter>
+    <>
+      <LoginNaver />
+    </>
   )
 }
 
