@@ -10,6 +10,10 @@ export default function LoginNaver() {
   const saveId = cookie.get('userId')
   const [idChk,setIdChk] = useState(saveId?true:false);
   
+  // 쿠키가 존재하면 화면에서 사라짐
+  const [showlogin,setShowlogin] = useState(saveId?false:true);
+  console.log(showlogin);
+
   // 아이디 저장 체크박스 변경 핸들러
   const idChkHandler = (e) => {
     setIdChk(e.target.checked);
@@ -33,54 +37,59 @@ export default function LoginNaver() {
       cookie.remove('userId',{path:'/'})
     }
     alert(`로그인 시도: ${userId}`)
+    setShowlogin(false); //로그인 성공시 로그인 화면 숨김
   }
-
 
   return (
     <div className="container">
-      <h2>NAVER</h2>
-      <button type="button" className="tab">
-        ID전화번호
-      </button>
-      <div className="loginWrap">
-        <form onSubmit={loginHandler}>
-          <ul>
-            <li>
-              <input
-                type="text"
-                id="userID"
-                name="userID"
-                value={userId}
-                placeholder="아이디 또는 전화번호"
-                onChange={(e)=>setUserid(e.target.value)}
-              />
-            </li>
-            <li>
-              <input
-                type="password"
-                id="userPw"
-                name="userPw"
-                value={userPw}
-                placeholder="비밀번호"
-                onChange={(e)=>setUserPw(e.target.value)}
-              />
-            </li>
-            <li className="chkLogin">
-              <label>
-                <input
-                  type="checkbox"
-                  id="idChk"
-                  name="idChk"
-                  onChange={idChkHandler}
-                />{' '}
-                아이디 저장
-              </label>
-              <span>IP보안</span>
-            </li>
-          </ul>
-          <button type="submit">로그인</button>
-        </form>
-      </div>
+      {showlogin  === true?
+       (
+        <>
+           <h2>NAVER</h2>
+            <button type="button" className="tab">
+              ID전화번호
+            </button>
+            <div className="loginWrap">
+              <form onSubmit={loginHandler}>
+                <ul>
+                  <li>
+                    <input
+                      type="text"
+                      id="userID"
+                      name="userID"
+                      value={userId}
+                      placeholder="아이디 또는 전화번호"
+                      onChange={(e)=>setUserid(e.target.value)}
+                    />
+                  </li>
+                  <li>
+                    <input
+                      type="password"
+                      id="userPw"
+                      name="userPw"
+                      value={userPw}
+                      placeholder="비밀번호"
+                      onChange={(e)=>setUserPw(e.target.value)}
+                    />
+                  </li>
+                  <li className="chkLogin">
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="idChk"
+                        name="idChk"
+                        onChange={idChkHandler}
+                      />{' '}
+                      아이디 저장
+                    </label>
+                    <span>IP보안</span>
+                  </li>
+                </ul>
+                <button type="submit">로그인</button>
+              </form>
+            </div>
+        </>
+       ):null }
     </div>
   );
 }
