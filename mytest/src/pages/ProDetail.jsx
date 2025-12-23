@@ -19,8 +19,14 @@ export default function ProDetail({data}){
     const product = data.find(item => item.id === Number(id))
     console.log('find',product);
 
+    if(!product){
+        return(
+            <p>정보를 불러오은 중입니다.</p>
+        )
+    }
+
      return (
-        <div>
+        <div className="detailPage">
             <h1>상품 상세 페이지</h1>
             <p>
             이 상품의 ID는 <strong>{id}</strong>입니다.

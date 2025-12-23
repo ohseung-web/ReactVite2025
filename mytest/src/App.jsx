@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 import Section from './pages/Section'
 import ProDetail from './pages/ProDetail'
 import useData from './pages/Data'
-
+import CartPage from './pages/CartPage'
 function App() {
    //커스텀 훅 + props 전달
  const data = useData();
@@ -17,7 +17,8 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Section data={data} />} />
-        <Route path='/:id' element={<ProDetail data={data} />} />
+        <Route path='/detail/:id' element={<ProDetail data={data} />} />
+        <Route path='/cart' element={<CartPage data={data}/>} />
       </Routes>
       <Footer />
     </BrowserRouter>

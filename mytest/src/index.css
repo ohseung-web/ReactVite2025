@@ -156,3 +156,7 @@ a {
   padding: 8px 0;
   border-bottom: 1px solid #ddd;
 }
+#root .detailPage{
+  width: 600px;
+  margin: 0 auto;
+}
