@@ -6,10 +6,11 @@ export default function Section({data}){
       // useState 초기값을 localStorage에서 읽어오도록 한다.
     const [cartlist,setCartList] = useState(()=>{
          const saved = localStorage.getItem('cartlist')
-        if(saved){
-            //setCartList(JSON.parse(saved)); //상태 갱신
-            return saved ? JSON.parse(saved):[]
-        }
+          return saved ? JSON.parse(saved):[]
+        // if(saved){
+        //     //setCartList(JSON.parse(saved)); //상태 갱신
+        //     return saved ? JSON.parse(saved):[]
+        // }
     });
     
        // cartlist 바뀔때마다 cartlist에 저장

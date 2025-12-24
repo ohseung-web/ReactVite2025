@@ -160,3 +160,16 @@ a {
   width: 600px;
   margin: 0 auto;
 }
+#root table{
+  width: 700px;
+   margin: 0 auto;
+   border-collapse: collapse;
+   text-align: center;
+}
+#root table tr td img{
+   width: 100px;
+   height: 100px;
+}
+#root .cartname{
+  text-align: center;
+}
